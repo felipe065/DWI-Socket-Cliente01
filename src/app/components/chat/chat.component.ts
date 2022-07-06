@@ -12,6 +12,9 @@ export class ChatComponent implements OnInit, OnDestroy {
   texto = '';
   mensajesSubsciptions: Subscription = new Subscription;
 
+  mensajes: any[]=[];
+
+
   constructor(
 
     public servicioCharla: ChatService
@@ -20,6 +23,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.mensajesSubsciptions = this.servicioCharla.getMessages().subscribe( msg => {
+      this.mensajes.push(msg);
       console.log(msg);
     } )
   }

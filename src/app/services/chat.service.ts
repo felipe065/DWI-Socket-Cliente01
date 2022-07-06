@@ -13,9 +13,11 @@ export class ChatService {
   sendMessage(mensaje: string){
      const payload = {
       de:'Felipe Paredes',
-      cuerpo: mensaje
+      cuerpo: mensaje,
+      color: 'Crimson'
      };
      this.wsService.emit('mensaje', payload);
+     
      
   }
 
