@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+footer
+{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+    text-align: right;
+}
