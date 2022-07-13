@@ -20,7 +20,7 @@ export class WebsocketService {
       console.log('Conectado al Servidor');
       this.socketStatus = true;
     })
-   
+
     this.socket.on('disconnect', () => {
       console.log('Desconectado del Servidor');
       this.socketStatus = false;
@@ -40,10 +40,17 @@ export class WebsocketService {
   }
 
   loginWS(nombre: string){
-    console.log('Configurando: ', nombre)
-    this.socket.emit('configurar-usuario', {nombre}, (resp: Response)=>
-    {
-      console.log(resp);
-    });
+    // console.log('Configurando: ', nombre)
+       return new Promise<void>((resolve,reject)=>{
+        this.emit('configurar-usuario', {nombre},(resp:Response) =>{
+          resolve();
+        });
+       });
+
+    }
+    // this.socket.emit('configurar-usuario', {nombre}, (resp: Response)=>
+    // {
+    //   console.log(resp);
+    // });
   }
-}
+
